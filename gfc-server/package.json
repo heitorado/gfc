@@ -1,0 +1,36 @@
+{
+  "name": "gfc-server",
+  "version": "1.0.0",
+  "description": "Server para a aplicação de Gerenciador de Finanças Compartilhadas",
+  "main": "gfc-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node typeScript/gfc-server/gfc-server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heitorado/gfc.git"
+  },
+  "author": "hscs, gap, lccao, sgml",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heitorado/gfc/issues"
+  },
+  "homepage": "https://github.com/heitorado/gfc#readme",
+  "dependencies": {
+    "@types/bluebird": "3.0",
+    "@types/body-parser": "^1.17.0",
+    "@types/express": "^4.16.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "request": "^2.34",
+    "typescript": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^2.8.9",
+    "@types/request-promise": "^4.1.38",
+    "jasmine": "^2.8.0",
+    "jasmine-promises": "^0.4.1",
+    "request-promise": "^4.2.2"
+  }
+}
