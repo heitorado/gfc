@@ -9,12 +9,14 @@ import { UsersComponent } from './users.component';
 
 import { PossessionsService } from './possessions.service';
 import { UserService } from './user.service';
+import { WishlistComponent } from './wishlist.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,
