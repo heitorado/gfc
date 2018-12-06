@@ -1,0 +1,10 @@
+#navbar li, h2{
+    display: inline;
+    margin: 10px;
+}
+
+#navbar h2{
+    background-color: beige;
+    border-style: solid;
+    border-width: 2px;
+}
