@@ -6,7 +6,6 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users.component';
-import { WishlistComponent } from './wishlist.component';
 
 import { PossessionsService } from './possessions.service';
 import { UserService } from './user.service';
@@ -16,7 +15,6 @@ import { UserService } from './user.service';
   declarations: [
     AppComponent,
     UsersComponent,
-    WishlistComponent
   ],
   imports: [
     BrowserModule,
