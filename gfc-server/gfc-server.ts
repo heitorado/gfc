@@ -4,9 +4,12 @@ import bodyParser = require("body-parser");
 import {User} from '../gfc-gui/src/app/user';
 import {UserRegister} from './user_register';
 
+import {Bills} from '../gfc-gui/src/app/bills'
+import {BillsRegister} from './bills_register';
 var app = express();
 
 var userReg: UserRegister = new UserRegister();
+var billsReg: BillsRegister = new BillsRegister();
 
 var allowCrossDomain = function(req: any, res: any, next: any) {
     res.header('Access-Control-Allow-Origin', "*");
@@ -94,12 +97,22 @@ app.post('/vault/operate', function (req: express.Request, res: express.Response
 // Bills Section
 app.get('/bills', function (req, res) {
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify({"todo": "bills get"}));
+  //res.send(JSON.stringify({"todo": "bills get"}));
+  res.send(JSON.stringify(billsReg.getBills()));
 })
 
 app.post('/bill', function (req: express.Request, res: express.Response) {
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify({"todo": "bills create"}));
+  //res.send(JSON.stringify({"todo": "bills create"}));
+  var bill: Bills = <Bills> req.body;
+  console.log(req.body);
+  //console.log(bill);
+  bill = billsReg.create(bill);
+  if (bill) {
+    res.send({"success": "User successfully inserted"});
+  } else {
+    res.send({"failure": "Failure inserting user"});
+  }
 })
 
 app.put('/bill', function (req: express.Request, res: express.Response) {
