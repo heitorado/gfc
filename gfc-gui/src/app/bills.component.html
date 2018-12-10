@@ -27,11 +27,21 @@
    <th>Nome</th>
    <th>Valor</th>
    <th>Data</th>
+   <th>Pago?</th>
 </tr>
 <tr *ngFor="let b of bills" name="billslist">
    <td name="nomelist">{{b.nome}}</td>
    <td name="valorlist">{{b.valor}}</td>
    <td>{{b.vencimento}}</td>
+   <td>
+       <div *ngIf="b.status == true; else statusFalse">
+            <input type="checkbox" [(ngModel)]="b.status" name="statusbox" checked>
+        </div>
+        
+        <ng-template #statusFalse>
+                <input type="checkbox" [(ngModel)]="b.status" name="statusbox">
+        </ng-template>
+    </td>
 </tr>
 </table>
 
