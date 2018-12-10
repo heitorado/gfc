@@ -10,6 +10,7 @@ export class VaultService {
   private headers = new Headers({'Content-Type': 'application/json'});
   private gfcURL = 'http://localhost:8000';
 
+  vault: Vault;
   constructor(private http: Http) { }
 
   criar(vault: Vault): Promise<Vault> {
