@@ -32,5 +32,8 @@
     "jasmine": "^2.8.0",
     "jasmine-promises": "^0.4.1",
     "request-promise": "^4.2.2"
+  },
+  "typescript": {
+    "command": "tsc"
   }
 }
