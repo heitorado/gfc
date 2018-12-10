@@ -26,6 +26,11 @@ export class BillsComponent implements OnInit {
         .catch(erro => alert(erro));
    }
 
+   atualizarGasto(gasto: Bills): void {
+    this.BillsService.atualizar(gasto)
+       .catch(erro => alert(erro));
+  }
+
    ngOnInit(): void {
      this.BillsService.getBills()
          .then(as => this.bills = as)

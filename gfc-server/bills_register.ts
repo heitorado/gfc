@@ -4,7 +4,7 @@ export class BillsRegister {
   bills: Bills[] = [];
 
   create(bill: Bills): Bills {
-    var result = null;
+    var result: Bills = null;
     result = new Bills();
     result.copyFrom(bill);
     result = this.setId(bill);
@@ -14,7 +14,10 @@ export class BillsRegister {
 
   update(bill: Bills): Bills {
     var result: Bills = this.bills.find(a => a.id == bill.id);
-    if (result) result.copyFrom(bill);
+
+    if (result){
+      result.copyFrom(bill);
+    }
     return result;
   }
 

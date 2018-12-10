@@ -18,12 +18,12 @@ export class Bills {
     }
 
     clone(): Bills {
-        var user: Bills = new Bills();
-        user.copyFrom(this);
-        return user;
+        var bill: Bills = new Bills();
+        bill.copyFrom(this);
+        return bill;
       }
     
-      copyFrom(from: Bills): void {
+    copyFrom(from: Bills): void {
         this.nome = from.nome;
         this.valor = from.valor;
         this.vencimento = from.vencimento;

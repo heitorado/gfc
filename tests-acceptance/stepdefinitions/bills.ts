@@ -5,7 +5,7 @@ let expect = chai.expect;
 
 let sleep = (ms => new Promise(resolve => setTimeout(resolve, ms)));
 
-let sameCPF = ((elem, cpf) => elem.element(by.name('cpflist')).getText().then(text => text === cpf));
+let sameValue = ((elem, value) => elem.element(by.name('valorlist')).getText().then(text => text === value));
 let sameName = ((elem, name) => elem.element(by.name('nomelist')).getText().then(text => text === name));
 
 let pAND = ((p,q) => p.then(a => q.then(b => a && b)))
@@ -39,8 +39,8 @@ defineSupportCode(function ({ Given, When, Then }) {
         await element(by.buttonText('Adicionar')).click();
     });
 
-    Then(/^I can see "([^\"]*)" with CPF "(\d*)" in the students list$/, async (name, cpf) => {
-        var allalunos : ElementArrayFinder = element.all(by.name('alunolist'));
-        allalunos.filter(elem => pAND(sameCPF(elem,cpf),sameName(elem,name))).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
+    Then(/^I can see a paid bill named “([^\"]*)” with the value “(\d*)”$/, async (name, cpf) => {
+        var allbills : ElementArrayFinder = element.all(by.name('billslist'));
+        allbills.filter(elem => pAND(sameValue(elem,cpf),sameName(elem,name))).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
     });
 })
