@@ -1,5 +1,9 @@
 export class Possession {
+    id: number;
     nome: string;
+    preco: number;
+    completion: number;
+    owned: boolean;
   
     constructor() {
       this.clean();
@@ -7,6 +11,8 @@ export class Possession {
   
     clean(): void {
       this.nome = "";
+      this.preco = 0.0;
+      this.owned = false;
     }
   
     clone(): Possession {
@@ -17,5 +23,7 @@ export class Possession {
   
     copyFrom(from: Possession): void {
       this.nome = from.nome;
+      this.preco = from.preco;
+      this.owned = false;
     }
   }
