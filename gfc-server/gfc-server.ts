@@ -4,6 +4,7 @@ import bodyParser = require("body-parser");
 import {User} from '../gfc-gui/src/app/user';
 import {UserRegister} from './user_register';
 import {VaultManager} from './vault_manager';
+import { Vault } from '../gfc-gui/src/app/vault';
 
 var app = express();
 
@@ -89,16 +90,12 @@ app.get('/vault', function (req, res) {
 })
 
 app.post('/vault/operate', function (req: express.Request, res: express.Response) {
-  var value: number = <number> req.body;
+  var vault: Vault = <Vault> req.body;
   console.log(req.body);
-  console.log(value);
-  if (value) {
+  console.log(vault);
+  if (vault) {
 
-    if(value > 0){
-      vaultManager.creditar(value);
-    } else {
-      vaultManager.debitar(value);
-    }
+    vaultManager.atualizar(vault);
     
     res.send({"success": "Vault successfully updated"});
   } else {

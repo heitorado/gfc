@@ -9,11 +9,11 @@ export class Vault {
         this.balance = 0.0;
     }
 
-    add(value: number): void {
+    addValue(value: number): void {
         this.balance += value;
     }
 
-    remove(value: number): void {
+    removeValue(value: number): void {
         this.balance -= value;
     }
 

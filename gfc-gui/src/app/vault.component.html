@@ -7,4 +7,14 @@
     balance {{balance}}
 </h1>
 
-</html>>
+<table>
+        <tr>
+           <td><label>Deposito/Saque </label></td>
+           <td><input [(ngModel)]="value" name="valuebox"></td>
+        </tr>
+        <tr>
+           <td><button (click)="atualizarVault(value)">Creditar</button></td>
+        </tr>
+        
+</table>
+</html>
