@@ -1,0 +1,36 @@
+<html>
+<h1 style="text-align:center">
+    Showing {{title}}
+</h1>
+<table>
+<tr>
+   <td><label>Nome </label></td>
+   <td><input [(ngModel)]="bill.nome" name="namebox"></td>
+   <td><button (click)="criarGasto(bill)">Adicionar</button></td>
+</tr>
+<tr>
+   <td><label>Valor </label></td>
+   <td><input [(ngModel)]="bill.valor" name="valuebox"></td>
+</tr>
+<tr>
+   <td><label>Vencimento </label></td>
+   <td><input [(ngModel)]="bill.vencimento" name="datebox"></td>
+</tr>
+<tr>
+    <td><label>Pago </label></td>
+    <td><input type="checkbox" [(ngModel)]="bill.status" name="statusbox"></td>
+ </tr>
+</table>
+<table>
+<tr *ngIf="bills.length > 0">
+   <th>Nome</th>
+   <th>Valor</th>
+   <th>Data</th>
+</tr>
+<tr *ngFor="let b of bills" name="billslist">
+   <td name="nomelist">{{b.nome}}</td>
+   <td name="valorlist">{{b.valor}}</td>
+   <td>{{b.vencimento}}</td>
+</tr>
+</table>
+</html>
