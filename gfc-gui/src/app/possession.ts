@@ -24,6 +24,6 @@ export class Possession {
     copyFrom(from: Possession): void {
       this.nome = from.nome;
       this.preco = from.preco;
-      this.owned = false;
+      this.owned = from.owned;
     }
   }

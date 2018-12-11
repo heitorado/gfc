@@ -15,11 +15,12 @@ describe("The possessions class", () => {
     
     posse.nome = "Toaster";
     posse.preco = 68.34
+    posse.owned = true;
 
     var clonedPosse = posse.clone()
 
     expect(clonedPosse.nome).toBe("Toaster");
     expect(clonedPosse.preco).toBe(68.34);
-    expect(clonedPosse.owned).toBe(false);
+    expect(clonedPosse.owned).toBe(true);
   })
 })
