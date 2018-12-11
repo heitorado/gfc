@@ -5,7 +5,7 @@ import { Http, Headers } from '@angular/http';
 import { Vault } from './vault';
 
 @Injectable()
-export class ValtService {
+export class VaultService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
   private gfcURL = 'http://localhost:8000';
@@ -13,7 +13,7 @@ export class ValtService {
   constructor(private http: Http) { }
 
   criar(vault: Vault): Promise<Vault> {
-    return this.http.post(this.gfcURL + "/vault",JSON.stringify(vault), {headers: this.headers})
+    return this.http.post(this.gfcURL + "/vault/operate",JSON.stringify(vault), {headers: this.headers})
            .toPromise()
            .then(res => {
               if (res.json().success) {return vault;} else {return null;}
@@ -22,7 +22,7 @@ export class ValtService {
   }
 
   atualizar(vault: Vault): Promise<Vault> {
-    return this.http.put(this.gfcURL + "/vault",JSON.stringify(vault), {headers: this.headers})
+    return this.http.post(this.gfcURL + "/vault/operate",JSON.stringify(vault), {headers: this.headers})
          .toPromise()
          .then(res => {
             if (res.json().success) {return vault;} else {return null;}
