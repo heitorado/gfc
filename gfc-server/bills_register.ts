@@ -6,17 +6,20 @@ export class BillsRegister {
   create(bill: Bills): Bills {
     var result: Bills = null;
     result = new Bills();
-    result.copyFrom(bill);
+    result = result.copyFrom(bill);
     result = this.setId(bill);
     this.bills.push(result);
     return result;
   }
 
   update(bill: Bills): Bills {
-    var result: Bills = this.bills.find(a => a.id == bill.id);
-
+    var result: Bills = null;
+    result = new Bills();
+    result = <Bills> this.bills.find(a => a.nome === bill.nome);
     if (result){
-      result.copyFrom(bill);
+      var aux: Bills = new Bills();
+      aux = result.copyFrom(bill);
+      result = aux;
     }
     return result;
   }

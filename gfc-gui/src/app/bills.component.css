@@ -17,7 +17,18 @@ th {
     width: 20px;
   }
   
+  input:checked {
+    background-color: #01ad1b;
+  }
+  input:checked:hover {
+    background-color: #386d00;
+  }
+  
   .bill input {
     border: none;
-    width: 40px;
+    width: 60px;
+  }
+  .bill-date input {
+    border: none;
+    width: 80px;
   }

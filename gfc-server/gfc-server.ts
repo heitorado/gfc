@@ -118,7 +118,7 @@ app.post('/bill', function (req: express.Request, res: express.Response) {
 app.put('/bill', function (req: express.Request, res: express.Response) {
   res.setHeader('Content-Type', 'application/json');
   var bill: Bills = <Bills> req.body;
-  console.log(req.body);
+  //console.log(req.body);
   bill = billsReg.update(bill);
   if (bill) {
     res.send({"success": "Bill successfully updated"});

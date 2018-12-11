@@ -34,7 +34,7 @@
 <tr *ngFor="let b of bills" name="billslist">
    <td name="nomelist">{{b.nome}}</td>
    <td class="bill" name="valorlist"><input [(ngModel)]="b.valor" (change)="atualizarGasto(b)"></td>
-   <td class="bill"><input [(ngModel)]="b.vencimento" (change)="atualizarGasto(b)"></td>
+   <td class="bill-date"><input [(ngModel)]="b.vencimento" (change)="atualizarGasto(b)"></td>
 
    <td (change)="atualizarGasto(b)">
         <div *ngIf="b.status == true; else statusFalse">

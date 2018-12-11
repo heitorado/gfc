@@ -23,11 +23,14 @@ export class Bills {
         return bill;
       }
     
-    copyFrom(from: Bills): void {
-        this.nome = from.nome;
-        this.valor = from.valor;
-        this.vencimento = from.vencimento;
-        this.status = from.status;
+    copyFrom(from: Bills): Bills {
+      var actual:Bills = new Bills();
+        actual.nome = from.nome;
+        actual.valor = from.valor;
+        actual.vencimento = from.vencimento;
+        actual.status = from.status;
+        actual.id = from.id;
+        return actual;
       }
   
   }
