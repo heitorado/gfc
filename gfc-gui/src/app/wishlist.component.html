@@ -23,13 +23,25 @@
           <th>| Preço </th>
           <th>| % Concluído</th>
       </tr>
-      <div *ngFor="let p of wishlistItems">
+      <div class="div-item" *ngFor="let p of wishlistItems">
         <tr *ngIf="p.owned == false" name="productslist" id="{{p.id}}">
           <td name="nomelist">{{p.nome}}</td>
           <td name="pricelist">{{p.preco}}</td>
           <td name="percentagelist">{{getItemCompletion(p)}}</td>
+          <td><button class="btn-buy" (click)="markAsBought(p)">Buy!</button></td>
         </tr>
       </div>
+    </table>
+  </div>
+
+  <div name="vault-stub">
+    <table>
+        <tr>
+          <td><input [(ngModel)]="value" name="valuebox"></td>
+          <td><p name="balance"> {{currentVaultMoney}} </p></td>
+          <td><button name="btn-deposit" (click)="deposit(value)">Depositar</button></td>
+          <td><button name="btn-withdraw" (click)="withdraw(value)">Retirar</button></td>
+        </tr>
     </table>
   </div>
   

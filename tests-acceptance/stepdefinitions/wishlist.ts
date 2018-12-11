@@ -20,11 +20,11 @@ defineSupportCode(function ({ Given, When, Then }) {
         await expect(element(by.name('wishlist-page-title')).getText()).to.eventually.equal(`Showing ${pageTitle}`);
     });
 
-    var myVault: VaultStub = new VaultStub();
-
     Given(/^I have "(\d*)" money at the Vault$/, async (money) => {
-        await myVault.deposit(<number><any>money);
-        await expect(myVault.balance().toString()).to.equal(money);
+        await $("input[name='valuebox']").clear();
+        await $("input[name='valuebox']").sendKeys(<string> money);
+        await element(by.name('btn-deposit')).click();
+        await expect(element(by.name('balance')).getText()).to.eventually.equal(money);
     });
 
     Given(/^I can see an item "([^\"]*)" with price "(\d*)" and "(\d*)" percent completion$/, async (name, price, completion) => {
@@ -34,14 +34,14 @@ defineSupportCode(function ({ Given, When, Then }) {
         await $("input[name='namebox']").sendKeys(<string> name);
         await $("input[name='pricebox']").sendKeys(<string> price);
         await element(by.name('btn-add')).click();
-        await allitems.filter(elem => pAND(pAND(sameName(elem,name),samePrice(elem,price)), samePercentage(elem,completion))).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
+        allitems.filter(elem => pAND(pAND(sameName(elem,name),samePrice(elem,price)), samePercentage(elem,completion))).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(1));
     });
 
     When(/^I mark the item "([^\"]*)" as bought$/, async (itemName) => {
-        var allitems : ElementArrayFinder = element.all(by.css('.div-item'));
+        var allitems : ElementArrayFinder = element.all(by.css("tr[name='productslist']"));
 
         await allitems.filter(function(elem, index){
-            return elem.$('.span-item').getText().then(function(text){
+            return elem.$("td[name='nomelist']").getText().then(function(text){
                 return text === <string> itemName;
             });
         }).first().$('.btn-buy').click();

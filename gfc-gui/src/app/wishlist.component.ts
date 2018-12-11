@@ -15,6 +15,7 @@ export class WishlistComponent implements OnInit {
     title = "Wishlist";
     item: Possession = new Possession();
     wishlistItems: Possession[];
+    value : number;
     currentVaultMoney : number;
 
     addToWishlist(item: Possession): void{
@@ -31,7 +32,18 @@ export class WishlistComponent implements OnInit {
     }
 
     markAsBought(item: Possession) : void {
-      // todo
+      item.owned = true;
+      this.withdraw(<number>item.preco);
+      console.log(item.preco)
+      this.possessionsService.updatePossession(item)
+        .then(res => {
+          if(res){
+            this.wishlistItems.splice(this.wishlistItems.indexOf(res), 1);
+          } else {
+            // todo
+          }
+        })
+        .catch(error => alert(error));
     }
 
     getItemCompletion(p : Possession) : number{
@@ -57,11 +69,11 @@ export class WishlistComponent implements OnInit {
    //vault stub
 
    deposit(value: number): number {
-    return this.currentVaultMoney += value;
+    return this.currentVaultMoney = +this.currentVaultMoney + +value;
   }
 
   withdraw(value: number): number {
-    return this.currentVaultMoney -= value;
+    return this.currentVaultMoney = +this.currentVaultMoney - +value;
   }
 
   getBalance(): number {
