@@ -19,6 +19,15 @@ export class PossessionsService {
              .catch(this.tratarErro);
   }
 
+  createPossession(pos: Possession): Promise<Possession> {
+    return this.http.post(this.gfcURL + "/possession", JSON.stringify(pos), {headers: this.headers})
+           .toPromise()
+           .then(res => {
+              if (res.json().success) {return pos;} else {return null;}
+           })
+           .catch(this.tratarErro);
+  }
+
   private tratarErro(erro: any): Promise<any>{
     console.error('Bad request to the possessions service',erro);
     return Promise.reject(erro.message || erro);

@@ -1,8 +1,36 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-    <h1>
+    <h1 name="wishlist-page-title">
       Showing {{ title }}
     </h1>
+
+    
+    <table>
+      <tr>
+        <td><label>Nome </label></td>
+        <td><input [(ngModel)]="item.nome" name="namebox"></td>
+        <td><button name="btn-add" (click)="addToWishlist(item)">Adicionar</button></td>
+      </tr>
+      <tr>
+        <td><label>Preço </label></td>
+        <td><input [(ngModel)]="item.preco" name="pricebox"></td>
+      </tr>
+    </table>
+
+    <table>
+      <tr *ngIf="wishlistItems.length > 0">
+          <th>| Nome </th>
+          <th>| Preço </th>
+          <th>| % Concluído</th>
+      </tr>
+      <div *ngFor="let p of wishlistItems">
+        <tr *ngIf="p.owned == false" name="productslist" id="{{p.id}}">
+          <td name="nomelist">{{p.nome}}</td>
+          <td name="pricelist">{{p.preco}}</td>
+          <td name="percentagelist">{{getItemCompletion(p)}}</td>
+        </tr>
+      </div>
+    </table>
   </div>
   
   <router-outlet></router-outlet>
