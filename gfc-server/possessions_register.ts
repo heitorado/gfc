@@ -4,10 +4,13 @@ export class PossessionsRegister {
   possessions: Possession[] = [];
 
   create(item: Possession): Possession {
-    var result = new Possession();
-    result.copyFrom(item);
-    result = this.setId(result);
-    this.possessions.push(result);
+    var result = null;
+    if(this.uniqueName(item.nome)){
+      result = new Possession();
+      result.copyFrom(item);
+      result = this.setId(result);
+      this.possessions.push(result);
+    }
     return result;
   }
 
@@ -40,5 +43,9 @@ export class PossessionsRegister {
       item.id = this.possessions[len-1].id + 1;
     }
     return item
+  }
+
+  uniqueName(nome : string) : boolean{
+    return !this.possessions.find(item => item.nome == nome);
   }
 }
