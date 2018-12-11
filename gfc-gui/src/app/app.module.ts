@@ -9,12 +9,15 @@ import { UsersComponent } from './users.component';
 
 import { PossessionsService } from './possessions.service';
 import { UserService } from './user.service';
+import { VaultComponent } from './vault.component';
+import { VaultService } from './vault.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
+    VaultComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,7 @@ import { UserService } from './user.service';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [PossessionsService, UserService],
+  providers: [PossessionsService, UserService, VaultService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

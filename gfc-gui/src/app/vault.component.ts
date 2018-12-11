@@ -14,6 +14,10 @@ export class VaultComponent implements OnInit {
 
    vault: Vault = new Vault();
 
+   title = "House Vault";
+
+   balance = this.vault.get();
+
    ngOnInit(): void {
      this.vaultService.getVault()
          .then(as => this.vault = as)
