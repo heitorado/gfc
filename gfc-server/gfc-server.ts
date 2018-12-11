@@ -3,10 +3,13 @@ import bodyParser = require("body-parser");
 
 import {User} from '../gfc-gui/src/app/user';
 import {UserRegister} from './user_register';
+import {VaultManager} from './vault_manager';
 
 var app = express();
 
 var userReg: UserRegister = new UserRegister();
+
+var vaultManager: VaultManager = new VaultManager();
 
 var allowCrossDomain = function(req: any, res: any, next: any) {
     res.header('Access-Control-Allow-Origin', "*");
@@ -82,12 +85,25 @@ app.put('/possession', function (req: express.Request, res: express.Response) {
 // Vault Section
 app.get('/vault', function (req, res) {
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify({"todo": "vault get"}));
+  res.send(JSON.stringify(vaultManager.getValue()));
 })
 
 app.post('/vault/operate', function (req: express.Request, res: express.Response) {
-  res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify({"todo": "vault operation"}));
+  var value: number = <number> req.body;
+  console.log(req.body);
+  console.log(value);
+  if (value) {
+
+    if(value > 0){
+      vaultManager.creditar(value);
+    } else {
+      vaultManager.debitar(value);
+    }
+    
+    res.send({"success": "Vault successfully updated"});
+  } else {
+    res.send({"failure": "Failure updating vault"});
+  }
 })
 
 
