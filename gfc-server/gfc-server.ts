@@ -71,8 +71,16 @@ app.post('/possession', function (req: express.Request, res: express.Response) {
 })
 
 app.put('/possession', function (req: express.Request, res: express.Response) {
+  var item: Possession = <Possession> req.body;
+  item = possessionsReg.update(item);
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify({"todo": "possessions update"}));
+  if (item) {
+    res.send({"success": "Item successfully updated"});
+  } else {
+    res.send({"failure": "Failure updating item"});
+  }
+  console.log("Received PUT on /possession. Ok.");
+
 })
 
 // Vault Section
