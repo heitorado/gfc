@@ -109,17 +109,34 @@ app.post('/vault/operate', function (req: express.Request, res: express.Response
 // Bills Section
 app.get('/bills', function (req, res) {
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify({"todo": "bills get"}));
+  //res.send(JSON.stringify({"todo": "bills get"}));
+  res.send(JSON.stringify(billsReg.getBills()));
 })
 
 app.post('/bill', function (req: express.Request, res: express.Response) {
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify({"todo": "bills create"}));
+  //res.send(JSON.stringify({"todo": "bills create"}));
+  var bill: Bills = <Bills> req.body;
+  console.log(req.body);
+  //console.log(bill);
+  bill = billsReg.create(bill);
+  if (bill) {
+    res.send({"success": "User successfully inserted"});
+  } else {
+    res.send({"failure": "Failure inserting user"});
+  }
 })
 
 app.put('/bill', function (req: express.Request, res: express.Response) {
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify({"todo": "bills update"}));
+  var bill: Bills = <Bills> req.body;
+  console.log(req.body);
+  bill = billsReg.update(bill);
+  if (bill) {
+    res.send({"success": "Bill successfully updated"});
+  } else {
+    res.send({"failure": "Failure updating bill"});
+  }
 })
 
 var server = app.listen(8000, function () {

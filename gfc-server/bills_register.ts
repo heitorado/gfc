@@ -1,8 +1,9 @@
 import { Bills } from '../gfc-gui/src/app/bills';
 export class BillsRegister {
   bills: Bills[] = [];
+
   create(bill: Bills): Bills {
-    var result = null;
+    var result: Bills = null;
     result = new Bills();
     result.copyFrom(bill);
     result = this.setId(bill);

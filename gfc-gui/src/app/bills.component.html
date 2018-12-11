@@ -6,7 +6,6 @@
 <tr>
    <td><label>Nome </label></td>
    <td><input [(ngModel)]="bill.nome" name="namebox"></td>
-   <td><button (click)="criarGasto(bill)">Adicionar</button></td>
 </tr>
 <tr>
    <td><label>Valor </label></td>
@@ -20,17 +19,30 @@
     <td><label>Pago </label></td>
     <td><input type="checkbox" [(ngModel)]="bill.status" name="statusbox"></td>
  </tr>
+ <tr id="add">
+    <td><button (click)="criarGasto(bill)">Adicionar</button></td>
+</tr>
 </table>
 <table>
 <tr *ngIf="bills.length > 0">
    <th>Nome</th>
    <th>Valor</th>
    <th>Data</th>
+   <th>Status</th>
 </tr>
 <tr *ngFor="let b of bills" name="billslist">
    <td name="nomelist">{{b.nome}}</td>
-   <td name="valorlist">{{b.valor}}</td>
-   <td>{{b.vencimento}}</td>
+   <td class="bill" name="valorlist"><input [(ngModel)]="b.valor" (change)="atualizarGasto(b)"></td>
+   <td class="bill"><input [(ngModel)]="b.vencimento" (change)="atualizarGasto(b)"></td>
+   <td (change)="atualizarGasto(b)">
+        <div *ngIf="b.status == true; else statusFalse">
+            Pago <input type="checkbox" [(ngModel)]="b.status" name="statusbox" checked>
+     </div>
+     
+     <ng-template #statusFalse>
+        Não Pago <input type="checkbox" [(ngModel)]="b.status" name="statusbox">
+     </ng-template>
+ </td>
 </tr>
 </table>
 </html>
