@@ -1,0 +1,65 @@
+[33mcommit a1f35bb79c13176a59e0d92992b33b1e2d32bbd2[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Saulo Guilhermino Ferreira Lima <sgfl@ug4c29.windows.cin.ufpe.br>
+Date:   Tue Dec 11 10:20:26 2018 -0300
+
+    [#4] back-end da feature de Gastos Comuns (bills) iniciado
+
+[33mcommit 8009b155bc11a32279b05eb0bef6c363aabdaee6[m
+Author: Saulo Guilhermino Ferreira Lima <sgfl@ug4c29.windows.cin.ufpe.br>
+Date:   Tue Dec 11 10:15:16 2018 -0300
+
+    [#4] front-end da feature de Gastos Comuns (bills) implementado
+
+[33mcommit 68893d30e95ef7234f591b953d178ada7368d642[m
+Author: Saulo Guilhermino Ferreira Lima <sgfl@ug4c29.windows.cin.ufpe.br>
+Date:   Tue Dec 11 10:08:48 2018 -0300
+
+    [#4] implemetado parcialmente teste de aceitação para cadastro de conta já paga
+
+[33mcommit c23800e37663352d33e8db640b8dae2e04d3a9aa[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mdev-bills-feature[m[33m)[m
+Author: Heitorado <hscs@cin.ufpe.br>
+Date:   Thu Dec 6 15:23:58 2018 -0300
+
+    Cria diretório e arquivos de configuração para execução de testes de aceitação
+
+[33mcommit 75a367c4c3becceeef94bc4f40a61a11c422f6a9[m
+Author: Heitorado <hscs@cin.ufpe.br>
+Date:   Thu Dec 6 14:27:41 2018 -0300
+
+    Modifica html e estilo do app component.
+
+[33mcommit 122b02fbfc899487d6a7adbfdb7011da5a5ca29d[m
+Author: Heitorado <hscs@cin.ufpe.br>
+Date:   Thu Dec 6 14:07:00 2018 -0300
+
+    Remove import de componente ainda não implementado em app.module
+
+[33mcommit c49244ab47ecbeb1b8491a348ba0b5486b00d347[m[33m ([m[1;31morigin/dev-feature-wishlist[m[33m, [m[1;32mdev-feature-wishlist[m[33m)[m
+Author: Heitorado <hscs@cin.ufpe.br>
+Date:   Thu Dec 6 13:56:57 2018 -0300
+
+    Correções no arquivo app.module para incluir os componentes e serviços
+
+[33mcommit 52d26583b92d254e5663efe0c15533b41ab558fd[m
+Author: Heitorado <hscs@cin.ufpe.br>
+Date:   Thu Dec 6 13:36:34 2018 -0300
+
+    Remove import incorreto
+
+[33mcommit aa3f0147cf21fa179a8534837038fc7cb7953355[m
+Author: Heitorado <hscs@cin.ufpe.br>
+Date:   Thu Dec 6 13:31:02 2018 -0300
+
+    Adiciona classe e serviço de Posses
+
+[33mcommit 6dcda5b9279f6b1da1104b93d8395614539846d3[m
+Author: Heitorado <hscs@cin.ufpe.br>
+Date:   Thu Dec 6 13:29:24 2018 -0300
+
+    Adiciona rota, serviço e componente de usuário
+
+[33mcommit c7098335dec0551805a06e1691f1ea3375cdb4da[m
+Author: Heitorado <hscs@cin.ufpe.br>
+Date:   Thu Dec 6 09:21:45 2018 -0300
+
+    Criação e configuração inicial do servidor
